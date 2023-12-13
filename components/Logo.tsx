@@ -5,7 +5,7 @@ function Logo() {
   return (
     <Link
      href={'/'}
-     className='font-bold text-3xl bg-black dark:bg-white text-transparent bg-clip-text hover:cursor-pointer'
+     className='font-bold leading-10 text-3xl bg-black dark:bg-white text-transparent bg-clip-text hover:cursor-pointer'
     
     >PageForge</Link>
   )
