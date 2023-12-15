@@ -57,11 +57,13 @@ function CreateFormBtn() {
       <DialogTrigger asChild>
         <Button
           className="group border border-primary/20 h-[190px] items-center
-         justify-center flex flex-col hover:border-primary hover:cursor-pointer border-dashed
-         gap-4 bg-background"
+         justify-center flex flex-col hover:border-white hover:cursor-pointer border-dashed
+         gap-4 bg-gray-200 hover:bg-gray-500 dark:bg-gray-500 dark:hover:bg-gray-600"
         >
-          <BsFileEarmarkPlus className="h-8 w-8 text-black dark:text-white" />
-          <p className="font-bold text-xl  ">Create New Form</p>
+          <BsFileEarmarkPlus className="h-8 w-8 text-black dark:text-white " />
+          <p className="font-bold text-lg text-black dark:text-white">
+            Create New Form
+          </p>
         </Button>
       </DialogTrigger>
       <DialogContent>
