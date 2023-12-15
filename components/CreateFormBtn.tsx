@@ -16,7 +16,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
+  FormMessage,
 } from "./ui/form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -29,8 +29,7 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { toast } from "./ui/use-toast";
 import { CreateForm } from "@/actions/form";
-
-
+import {BsFileEarmarkPlus} from "react-icons/bs"
 
 function CreateFormBtn() {
   const form = useForm<formSchematype>({
@@ -39,24 +38,31 @@ function CreateFormBtn() {
 
   async function onSubmit(values: formSchematype) {
     try {
-      await CreateForm(values);
+      const formId = await CreateForm(values);
       toast({
-        title:"Success",
-        description:"Form Created Successfully"
-      })
-      
+        title: "Success",
+        description: "Form Created Successfully",
+      });
+      console.log("FORM ID", formId);
     } catch (error) {
       toast({
-        title: 'Error',
+        title: "Error",
         description: "Something went wrong, please try again later",
         variant: "destructive",
-      })
+      });
     }
   }
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button>Create New Form</Button>
+        <Button
+          className="group border border-primary/20 h-[190px] items-center
+         justify-center flex flex-col hover:border-primary hover:cursor-pointer border-dashed
+         gap-4 bg-background"
+        >
+          <BsFileEarmarkPlus className="h-8 w-8 text-black dark:text-white" />
+          <p className="font-bold text-xl  ">Create New Form</p>
+        </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
@@ -97,9 +103,7 @@ function CreateFormBtn() {
         </Form>
         <DialogFooter>
           <Button
-          onClick={() => {
-            form.handleSubmit(onSubmit);
-          }}
+            onClick={form.handleSubmit(onSubmit)}
             disabled={form.formState.isSubmitting}
             className="w-full mt-4"
           >
