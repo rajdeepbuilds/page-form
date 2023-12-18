@@ -29,7 +29,7 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { toast } from "./ui/use-toast";
 import { CreateForm } from "@/actions/form";
-import {BsFileEarmarkPlus} from "react-icons/bs"
+import { BsFileEarmarkPlus } from "react-icons/bs";
 
 function CreateFormBtn() {
   const form = useForm<formSchematype>({
@@ -58,7 +58,7 @@ function CreateFormBtn() {
         <Button
           className="group border border-primary/20 h-[190px] items-center
          justify-center flex flex-col hover:border-white hover:cursor-pointer border-dashed
-         gap-4 bg-secondary hover:bg-gray-500 dark:bg-secondary dark:hover:bg-gray-600"
+         gap-4 bg-secondary hover:bg-gray-500 dark:bg-secondary dark:hover:bg-gray-600 "
         >
           <BsFileEarmarkPlus className="h-8 w-8 text-black dark:text-white " />
           <p className="font-bold text-lg text-black dark:text-white">
@@ -90,7 +90,7 @@ function CreateFormBtn() {
             />
             <FormField
               control={form.control}
-              name="name"
+              name="description"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Description</FormLabel>
