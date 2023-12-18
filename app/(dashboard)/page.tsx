@@ -1,4 +1,4 @@
-import { GetFormStats } from "@/actions/form";
+import { GetFormStats, GetForms } from "@/actions/form";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ReactNode, Suspense } from "react";
@@ -15,10 +15,12 @@ export default function Home() {
       <Suspense fallback={<StatsCards loading={true} />}>
         <CardStatsWrapper />
       </Suspense>
-      <Separator className="my-6"/>
+      <Separator className="my-6" />
       <h2 className="text-4-xl font-bold col-span-2">Your Forms</h2>
-      <Separator className="my-6"/>
-      <CreateFormBtn/>
+      <Separator className="my-6" />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <CreateFormBtn />
+      </div>
     </div>
   );
 }
@@ -109,4 +111,12 @@ function StatsCard({
       </CardContent>
     </Card>
   );
+}
+
+function FormCardSkeleton(){
+  return <Skeleton className="border-2 border-primary/20 h-[190px] w-full"/>;
+}
+
+async function FormCards(){
+  const forms = await GetForms();
 }
